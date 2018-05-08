@@ -3,6 +3,7 @@ package com.lottery.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.lottery.service.DemoService;
 
+
 @Service(version = "1.0.0")
 public class DemoServiceImpl implements DemoService {
 
