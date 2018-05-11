@@ -5,10 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lottery</groupId>
     <artifactId>lottery-business-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <modules>
-        <module>lottery-business-service</module>
         <module>lottery-business-api</module>
+        <module>lottery-business-controller</module>
+        <module>lottery-business-dao</module>
     </modules>
 
     <parent>
@@ -17,11 +18,15 @@
         <version>1.5.1.RELEASE</version>
     </parent>
 
+    <dependencies>
+
+    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <dubbo-spring-boot>1.0.0</dubbo-spring-boot>
+        <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
+        <mysql-connector>5.1.39</mysql-connector>
     </properties>
-
     <packaging>pom</packaging>
 </project>
