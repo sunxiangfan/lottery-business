@@ -10,6 +10,7 @@
         <module>lottery-business-api</module>
         <module>lottery-business-controller</module>
         <module>lottery-business-dao</module>
+        <module>lottery-business-common</module>
     </modules>
 
     <parent>

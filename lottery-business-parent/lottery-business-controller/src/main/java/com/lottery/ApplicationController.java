@@ -11,6 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@EnableScheduling
 @MapperScan("com.lottery.mapper")
 public class ApplicationController {
 

@@ -17,7 +17,11 @@
             <artifactId>lottery-business-api</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.lottery</groupId>
+            <artifactId>lottery-business-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <dependency>
             <groupId>com.lottery</groupId>
             <artifactId>lottery-business-dao</artifactId>
