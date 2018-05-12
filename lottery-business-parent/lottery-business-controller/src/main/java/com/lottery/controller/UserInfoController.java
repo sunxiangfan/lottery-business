@@ -16,7 +16,7 @@ public class UserInfoController {
     @Autowired
     UserInfoService userInfoService;
 
-    @RequestMapping(value = "/xmd/submitOrder", method = {RequestMethod.POST})
+    @RequestMapping(value = "/user/userInfo", method = {RequestMethod.POST})
     public Results submitOrder(@RequestBody UserInfoDTO body) {
         UserInfoBean userInfo = userInfoService.findUserInfoById(body.getId());
         return Results.success(userInfo);

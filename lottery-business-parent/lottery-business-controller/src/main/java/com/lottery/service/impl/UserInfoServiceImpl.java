@@ -1,8 +1,9 @@
-package com.lottery.service;
+package com.lottery.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.lottery.entity.UserInfoBean;
 import com.lottery.mapper.UserInfoMapper;
+import com.lottery.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Service(version = "1.0.0")
