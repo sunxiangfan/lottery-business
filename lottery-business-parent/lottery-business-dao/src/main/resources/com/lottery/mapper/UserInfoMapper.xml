@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lottery.mapper.UserInfoMapper">
+    <resultMap id="ResultMap" type="com.lottery.entity.UserInfoBean">
+        <result column="id" property="id"/>
+        <result column="login_name" property="loginName"/>
+    </resultMap>
+
+    <select id="findUserInfoById" resultMap="ResultMap" parameterType="java.lang.String">
+        select * from user_info where id = #{id}
+    </select>
+</mapper>
