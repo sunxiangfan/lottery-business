@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lottery.mapper.UserInfoMapper">
-    <resultMap id="ResultMap" type="com.lottery.entity.UserInfoBean">
-        <result column="id" property="id"/>
-        <result column="login_name" property="loginName"/>
+
+    <resultMap id="BaseResultMap" type="com.lottery.entity.UserInfoBean" >
+        <id column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+        <result column="login_pswd" jdbcType="VARCHAR" property="loginPswd" />
+        <result column="p_user_id" jdbcType="VARCHAR" property="pUserId" />
+        <result column="is_lock" jdbcType="VARCHAR" property="isLock" />
+        <result column="lock_time" jdbcType="TIMESTAMP" property="lockTime" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     </resultMap>
 
-    <select id="findUserInfoById" resultMap="ResultMap" parameterType="java.lang.String">
-        select * from user_info where id = #{id}
+    <select id="findUserInfoById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from user_info where user_id = #{id}
+    </select>
+
+    <insert id="insertUserInfo" >
+        <selectKey keyProperty="userId" resultType="String" order="BEFORE">
+            select  replace(uuid(),'-','')   from dual
+        </selectKey>
+
+        insert into user_info (user_id, login_name, login_pswd,
+        p_user_id, is_lock, lock_time,
+        create_time)
+        values (#{userId,jdbcType=VARCHAR}, #{userInfoDTO.loginName,jdbcType=VARCHAR}, #{userInfoDTO.loginPswd,jdbcType=VARCHAR},
+        #{userInfoDTO.pUserId,jdbcType=VARCHAR}, #{userInfoDTO.isLock,jdbcType=VARCHAR}, #{userInfoDTO.lockTime,jdbcType=TIMESTAMP},
+        #{userInfoDTO.createTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <!--验证用户名是否重复-->
+    <select id="verifyUserNameRepeat" resultType="java.lang.Long" parameterType="java.lang.String">
+        select count(*) from user_info where login_name = #{loginName}
     </select>
 </mapper>

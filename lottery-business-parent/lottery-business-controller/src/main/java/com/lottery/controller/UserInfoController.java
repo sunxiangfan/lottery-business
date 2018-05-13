@@ -18,7 +18,7 @@ public class UserInfoController {
 
     @RequestMapping(value = "/user/userInfo", method = {RequestMethod.POST})
     public Results submitOrder(@RequestBody UserInfoDTO body) {
-        UserInfoBean userInfo = userInfoService.findUserInfoById(body.getId());
+        UserInfoBean userInfo = userInfoService.findUserInfoById(body.getUserId());
         return Results.success(userInfo);
     }
 }

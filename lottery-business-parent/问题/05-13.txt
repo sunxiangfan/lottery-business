@@ -1,0 +1,5 @@
+手机号验证用注解 未做完
+生成验证码获取jwt放入redis  或session
+验证验证码  jwt
+注册成功    redis销毁jwt
+service返回结果 如果dubbo调用 是否需要传递错误或其他信息
