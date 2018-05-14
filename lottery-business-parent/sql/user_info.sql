@@ -9,3 +9,12 @@ CREATE TABLE `user_info` (
   PRIMARY KEY (`user_id`),
   KEY `login_name_pswd_key` (`login_name`,`login_pswd`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+create table bank_card (
+  id 						varchar(32) not null comment 'ID',
+  user_id				varchar(32) not null comment '用户ID',
+  card_num 			varchar(32) not null comment '卡号',
+  card_holder 	varchar(16) not null comment '持卡人'
+  primary key (id)
+)comment '银行卡信息';

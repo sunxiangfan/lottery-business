@@ -16,8 +16,8 @@ public class UserInfoController {
     @Autowired
     UserInfoService userInfoService;
 
-    @RequestMapping(value = "/user/userInfo", method = {RequestMethod.POST})
-    public Results submitOrder(@RequestBody UserInfoDTO body) {
+    @RequestMapping(value = "/user/findUserInfoById", method = {RequestMethod.POST})
+    public Results findUserInfoById(@RequestBody UserInfoDTO body) {
         UserInfoBean userInfo = userInfoService.findUserInfoById(body.getUserId());
         return Results.success(userInfo);
     }
