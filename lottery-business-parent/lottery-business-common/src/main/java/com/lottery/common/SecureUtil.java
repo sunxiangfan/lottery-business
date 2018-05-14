@@ -1,13 +1,11 @@
 package com.lottery.common;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Encoder;
 
 import java.security.MessageDigest;
 
 public class SecureUtil {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     /**
      * 算法常量： MD5
      */

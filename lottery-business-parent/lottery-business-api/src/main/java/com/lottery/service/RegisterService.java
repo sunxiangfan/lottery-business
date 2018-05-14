@@ -17,7 +17,7 @@ import java.util.Map;
  * 6.添加
  * 7.找回密码?
  */
-public interface RegisteredService {
+public interface RegisterService {
 
     //生成验证码
     ValidateCode createValidateCode(ValidateCodeDTO v);
