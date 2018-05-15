@@ -19,11 +19,10 @@ public class Results {
         return result;
     }
 
-    public static Results fail(String message,Object data){
+    public static Results fail(String message){
         Results result = new Results();
         result.setCode(ResultStatusEnum.FAIL.getCode());
         result.setMessage(message);
-        result.setData(data);
         return result;
     }
 }

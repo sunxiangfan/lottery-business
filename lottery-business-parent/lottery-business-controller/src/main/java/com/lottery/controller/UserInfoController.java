@@ -27,7 +27,7 @@ public class UserInfoController {
             results = Results.success(userInfo);
         }catch (Exception e){
             log.error("查询用户信息失败！",e);
-            results = Results.fail("查询用户信息失败！",null);
+            results = Results.fail("查询用户信息失败！");
         }
         return results;
     }
