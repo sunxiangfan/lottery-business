@@ -21,7 +21,7 @@ public class Results {
 
     public static Results fail(String message,Object data){
         Results result = new Results();
-        result.setCode(ResultStatusEnum.SUCCESS.getCode());
+        result.setCode(ResultStatusEnum.FAIL.getCode());
         result.setMessage(message);
         result.setData(data);
         return result;
