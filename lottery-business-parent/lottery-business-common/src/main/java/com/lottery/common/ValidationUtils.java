@@ -17,7 +17,7 @@ public class ValidationUtils {
         Set<ConstraintViolation<T>> set = validator.validate(obj, Default.class);
         if (CollectionUtils.isNotEmpty(set)) {
             for (ConstraintViolation<T> cv : set) {
-                return  Results.fail(ResultStatusEnum.FAIL.getCode(),cv.getMessage());
+                return  Results.fail(cv.getMessage());
             }
         }
         return Results.success(ResultStatusEnum.SUCCESS.getCode());

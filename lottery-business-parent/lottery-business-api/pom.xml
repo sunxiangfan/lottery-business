@@ -23,10 +23,14 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
         </dependency>
+
         <dependency>
-            <groupId>com.lottery</groupId>
-            <artifactId>lottery-business-common</artifactId>
-            <version>1.0.0</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
         </dependency>
     </dependencies>
 </project>

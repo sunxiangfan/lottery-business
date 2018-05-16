@@ -1,6 +1,6 @@
 package com.lottery.service;
 
-import com.lottery.common.ValidateCode;
+//import com.lottery.common.ValidateCode;
 import com.lottery.dto.UserInfoDTO;
 import com.lottery.dto.ValidateCodeDTO;
 
@@ -20,7 +20,7 @@ import java.util.Map;
 public interface RegisterService {
 
     //生成验证码
-    ValidateCode createValidateCode(ValidateCodeDTO v);
+    //ValidateCode createValidateCode(ValidateCodeDTO v);
     //验证用户名是否重复
     Boolean verifyUserNameRepeat(String s);
     //验证验证码是否正确

@@ -14,7 +14,22 @@ public class ScheduledTasks {
     private static boolean b = true;
 
     @Scheduled(cron = "*/5 * * * * ?")
-    public void ChongqQingOftenLottery() {
+    public void ChongqQingOftenLotteryTask5() {
+        int time = Integer.parseInt(DateUtils.getHour());
+        if(time<200 && time>2200){
+            ChongqQingOftenLottery();
+        }
+    }
+
+    @Scheduled(cron = "*/10 * * * * ?")
+    public void ChongqQingOftenLotteryTask10() {
+        int time = Integer.parseInt(DateUtils.getHour());
+        if(time>200 && time<2200){
+            ChongqQingOftenLottery();
+        }
+    }
+
+    private void ChongqQingOftenLottery(){
         String numbersLottery = String.valueOf((int)((Math.random() * 9 + 1) * 10000));
         String now = DateUtils.getDate();
         if (b) {

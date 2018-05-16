@@ -16,12 +16,12 @@ public class RegisterServiceImpl implements RegisterService {
     UserInfoMapper userInfoMapper;
 
     //生成验证码
-    @Override
-    public ValidateCode createValidateCode(ValidateCodeDTO v) {
-        ValidateCode validateCode = new ValidateCode(v.getWidth(), v.getHeight(), v.getCodeCount(), v.getLineCount());
-        //获取jwt放入redis中,用于验证码验证
-        return validateCode;
-    }
+//    @Override
+//    public ValidateCode createValidateCode(ValidateCodeDTO v) {
+//        ValidateCode validateCode = new ValidateCode(v.getWidth(), v.getHeight(), v.getCodeCount(), v.getLineCount());
+//        //获取jwt放入redis中,用于验证码验证
+//        return validateCode;
+//    }
 
     //验证用户名是否重复
     @Override
