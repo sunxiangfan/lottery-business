@@ -1,10 +1,9 @@
 package com.lottery.controller;
 
-import com.lottery.common.SecureUtil;
+import com.lottery.common.MD5Utils;
 import com.lottery.common.ValidationUtils;
 import com.lottery.config.JwtHelper;
 import com.lottery.dto.LoginDTO;
-import com.lottery.dto.UserInfoDTO;
 import com.lottery.entity.Results;
 import com.lottery.entity.UserInfoBean;
 import com.lottery.eum.ResultStatusEnum;
@@ -39,7 +38,7 @@ public class LoginController {
                     results = Results.fail("用户不存在！");
                     return results;
                 }
-                if(!SecureUtil.checkpassword(body.getLoginPswd(),bean.getLoginPswd())){
+                if(!MD5Utils.EncoderByMd5(body.getLoginPswd()).equals(bean.getLoginPswd())){
                     results = Results.fail("密码不正确！");
                     return results;
                 }
@@ -51,11 +50,5 @@ public class LoginController {
             }
         }
         return results;
-    }
-
-    @RequestMapping(value = "/test/test", method = {RequestMethod.POST})
-    public Results test(@RequestBody UserInfoDTO body) {
-
-        return Results.success("22222222222222");
     }
 }

@@ -16,6 +16,6 @@ public class UserInfoDTO extends UserInfoBean {
     private String loginName;
     @NotEmpty(message = "loginPswd不能为空!")
     private String loginPswd;
-    //@NotEmpty(message = "pUserId不能为空!")
+    @NotEmpty(message = "pUserId不能为空!")
     private String pUserId;
 }

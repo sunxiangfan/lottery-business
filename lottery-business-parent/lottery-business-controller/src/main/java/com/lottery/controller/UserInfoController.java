@@ -20,10 +20,9 @@ public class UserInfoController {
 
     @RequestMapping(value = "/user/findUserInfoById", method = {RequestMethod.POST})
     public Results findUserInfoById(@RequestBody UserInfoDTO body) {
-        UserInfoBean userInfo = null;
         Results results = null;
         try {
-            userInfo = userInfoService.findUserInfoById(body.getUserId());
+            UserInfoBean userInfo = userInfoService.findUserInfoById(body.getUserId());
             results = Results.success(userInfo);
         }catch (Exception e){
             log.error("查询用户信息失败！",e);

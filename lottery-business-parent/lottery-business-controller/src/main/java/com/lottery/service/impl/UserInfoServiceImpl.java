@@ -21,4 +21,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfoBean findUserInfo(UserInfoBean bean) {
         return userInfoMapper.findUserInfo(bean);
     }
+
+    @Override
+    public void insertUserInfo(UserInfoBean bean) {
+        userInfoMapper.insertUserInfo(bean);
+    }
 }

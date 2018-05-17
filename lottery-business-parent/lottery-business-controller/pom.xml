@@ -61,5 +61,11 @@
             <artifactId>junit</artifactId>
             <version> 4.12</version>
         </dependency>
+        <!-- 第三方验证码库 -->
+        <dependency>
+            <groupId>cn.apiclub.tool</groupId>
+            <artifactId>simplecaptcha</artifactId>
+            <version>1.2.2</version>
+        </dependency>
     </dependencies>
 </project>
