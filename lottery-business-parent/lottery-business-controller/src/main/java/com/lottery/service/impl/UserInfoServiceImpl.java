@@ -16,4 +16,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfoBean findUserInfoById(String id) {
         return userInfoMapper.findUserInfoById(id);
     }
+
+    @Override
+    public UserInfoBean findUserInfo(UserInfoBean bean) {
+        return userInfoMapper.findUserInfo(bean);
+    }
 }

@@ -6,4 +6,6 @@ import com.lottery.entity.UserInfoBean;
 public interface UserInfoService{
 
     UserInfoBean findUserInfoById(String id);
+
+    UserInfoBean findUserInfo(UserInfoBean bean);
 }

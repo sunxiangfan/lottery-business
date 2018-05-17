@@ -11,6 +11,8 @@ public interface UserInfoMapper {
 
     UserInfoBean findUserInfoById(@Param("id") String id);
 
+    UserInfoBean findUserInfo(UserInfoBean bean);
+
     int insertUserInfo(@Param("userInfoDTO") UserInfoDTO userInfoDTO);
 
     Long verifyUserNameRepeat(@Param("loginName") String loginName);

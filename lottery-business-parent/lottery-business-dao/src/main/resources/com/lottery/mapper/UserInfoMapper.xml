@@ -2,30 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lottery.mapper.UserInfoMapper">
 
-    <resultMap id="BaseResultMap" type="com.lottery.entity.UserInfoBean" >
-        <id column="user_id" jdbcType="VARCHAR" property="userId" />
-        <result column="login_name" jdbcType="VARCHAR" property="loginName" />
-        <result column="login_pswd" jdbcType="VARCHAR" property="loginPswd" />
-        <result column="p_user_id" jdbcType="VARCHAR" property="pUserId" />
-        <result column="is_lock" jdbcType="VARCHAR" property="isLock" />
-        <result column="lock_time" jdbcType="TIMESTAMP" property="lockTime" />
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <resultMap id="BaseResultMap" type="com.lottery.entity.UserInfoBean">
+        <id column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="login_name" jdbcType="VARCHAR" property="loginName"/>
+        <result column="login_pswd" jdbcType="VARCHAR" property="loginPswd"/>
+        <result column="p_user_id" jdbcType="VARCHAR" property="pUserId"/>
+        <result column="is_lock" jdbcType="VARCHAR" property="isLock"/>
+        <result column="lock_time" jdbcType="TIMESTAMP" property="lockTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
     <select id="findUserInfoById" resultMap="BaseResultMap" parameterType="java.lang.String">
-        select * from user_info where user_id = #{id}
+        select * from user_info where user_id = #{userId}
     </select>
 
-    <insert id="insertUserInfo" >
+    <select id="findUserInfo" resultMap="BaseResultMap" parameterType="com.lottery.entity.UserInfoBean">
+        select * from user_info
+        <where>1=1
+            <if test="userId != null and userId != ''">
+                AND user_id = #{userId}
+            </if>
+            <if test="loginName != null and loginName != ''">
+                AND login_name = #{loginName}
+            </if>
+            <if test="pUserId != null and pUserId != ''">
+                AND p_user_id = #{pUserId}
+            </if>
+            <if test="isLock != null and isLock != ''">
+                AND is_lock = #{isLock}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertUserInfo">
         <selectKey keyProperty="userId" resultType="String" order="BEFORE">
-            select  replace(uuid(),'-','')   from dual
+            select replace(uuid(),'-','') from dual
         </selectKey>
 
         insert into user_info (user_id, login_name, login_pswd,
         p_user_id, is_lock, lock_time,
         create_time)
-        values (#{userId,jdbcType=VARCHAR}, #{userInfoDTO.loginName,jdbcType=VARCHAR}, #{userInfoDTO.loginPswd,jdbcType=VARCHAR},
-        #{userInfoDTO.pUserId,jdbcType=VARCHAR}, #{userInfoDTO.isLock,jdbcType=VARCHAR}, #{userInfoDTO.lockTime,jdbcType=TIMESTAMP},
+        values (#{userId,jdbcType=VARCHAR}, #{userInfoDTO.loginName,jdbcType=VARCHAR},
+        #{userInfoDTO.loginPswd,jdbcType=VARCHAR},
+        #{userInfoDTO.pUserId,jdbcType=VARCHAR}, #{userInfoDTO.isLock,jdbcType=VARCHAR},
+        #{userInfoDTO.lockTime,jdbcType=TIMESTAMP},
         #{userInfoDTO.createTime,jdbcType=TIMESTAMP})
     </insert>
 
