@@ -127,7 +127,7 @@ button, input{
 	z-index:0!important;
 }
 body.bg-m{
-	background-image:url(../images/11.jpg);
+	/*background-image:url(../images/11.jpg);*/
 	background-repeat:no-repeat;
 	background-position:top left;
 	background-size:32%;
@@ -164,6 +164,7 @@ section{
 	background:none;
 	margin-bottom:0px;
 	min-height:auto;
+	width:1000px;
 }
 .main-menu ul.navbar-nav{
 	position:relative;
@@ -173,7 +174,7 @@ section{
 	display:inline;
 }
 .navbar-default ul.navbar-nav  li > a{
-	padding:22px 25px;
+	padding:22px 60px;
 	display:inline-block;
 	color:#fff;
 	text-transform:uppercase;
@@ -251,7 +252,7 @@ section{
 /*////////////02. Header style ///////////*/
 .category-bar > a{
 	display:inline-block;
-	padding:23px 25px;
+	padding:23px 50px;
 	height:65px;
 	color:#fff;
 	font-size:16px;
@@ -263,7 +264,7 @@ section{
 	margin-left:5px;
 }
 .category-bar .dropdown-menu{
-	width:230px;
+	width:181px;
 	box-shadow:0px 0px 0px 0px #fff;
 	padding:0px;
 	left:0;
@@ -784,7 +785,7 @@ img.mfp-img{
 	height:500px;
 }
 .bg-img-2{
-	background-image:url('../images/11.jpg');
+	/*background-image:url('../images/11.jpg');*/
 	background-repeat:no-repeat;
 	background-size:40%;
 }

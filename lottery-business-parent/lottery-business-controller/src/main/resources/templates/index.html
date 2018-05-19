@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>我的彩票项目</title>
     <!-- JqueryUI -->
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
     <!-- Bootstrap -->
@@ -28,6 +28,8 @@
     <i class="fa fa-spinner"></i>
 </div>
 <header>
+    <div id="login"></div>
+
     <div class="container">
         <div class="row top-header">
             <div class="col-sm-3 text-left">
@@ -37,24 +39,24 @@
             </div>
             <div class="col-sm-9">
                 <ul class="top-link pull-right">
-                    <li class="hidden-xs"><a href="">Wishlist</a></li>
-                    <li class="hidden-xs"><a href="#">Compare</a></li>
-                    <li class="hidden-xs"><a href="product_checkout.html">Checkout</a></li>
-                    <li class="dropdown hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"
-                           aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="#">Log out</a></li>
-                        </ul>
-                    </li>
+                    <li class="hidden-xs"><a href="javascript:showLogin();">登录</a></li>
+                    <li class="hidden-xs"><a href="register.html">注册</a></li>
+                    <!--<li class="hidden-xs"><a href="product_checkout.html">Checkout</a></li>-->
+                    <!--<li class="dropdown hidden-xs">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"-->
+                    <!--aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+                    <!--<li><a href="login.html">Login</a></li>-->
+                    <!--<li><a href="register.html">Register</a></li>-->
+                    <!--<li><a href="#">Log out</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
                     <li class="pull-right">
                         <div class="cart dropdown">
-                            <a href="#" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <span>2</span><i class="fa fa-cart-plus"></i>
-                            </a>
+                            <!--<a href="#" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"-->
+                            <!--aria-haspopup="true" aria-expanded="false">-->
+                            <!--<span>2</span><i class="fa fa-cart-plus"></i>-->
+                            <!--</a>-->
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <li>
                                     <div class="media">
@@ -114,19 +116,19 @@
                     <div class="dropdown category-bar">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="true">
-                            <i class="fa fa-bars"></i><span>Categories</span>
+                            <i class="fa fa-bars"></i><span>选择彩票</span>
                         </a>
                         <ul class="dropdown-menu display-block hidden-xs">
-                            <li><a href="#"><span><img src="images/25.jpg" width="50" alt="image"></span>Vegetables</a>
+                            <li><a href="#"><span><img src="images/25.jpg" width="50" alt="image"></span>重庆时时彩</a>
                             </li>
-                            <li><a href="#"><span><img src="images/18.jpg" width="50" alt="image"></span>Broccoli</a>
+                            <li><a href="#"><span><img src="images/18.jpg" width="50" alt="image"></span>急速赛车</a>
                             </li>
-                            <li><a href="#"><span><img src="images/16.jpg" width="50" alt="image"></span>Cabbage</a>
+                            <li><a href="#"><span><img src="images/16.jpg" width="50" alt="image"></span>三分彩</a>
                             </li>
-                            <li><a href="#"><span><img src="images/22.jpg" width="50" alt="image"></span>Bean</a></li>
-                            <li><a href="#"><span><img src="images/21.jpg" width="50" alt="image"></span>Heirloom</a>
+                            <li><a href="#"><span><img src="images/22.jpg" width="50" alt="image"></span>北京PK10</a></li>
+                            <li><a href="#"><span><img src="images/21.jpg" width="50" alt="image"></span>幸运28</a>
                             </li>
-                            <li><a href="#"><span><img src="images/20.jpg" width="50" alt="image"></span>Fruit</a></li>
+                            <li><a href="#"><span><img src="images/20.jpg" width="50" alt="image"></span>急速六合彩</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,22 +146,22 @@
                             </div>
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="about.html">手机购彩</a></li>
+                                    <li><a href="../static/login.html">图表走势</a></li>
+                                    <li><a href="register.html">购彩大厅</a></li>
+                                    <li><a href="#">个人中心</a></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                 </div>
-                <div class="col-sm-3 col-md-3 col-lg-3 p-0">
-                    <div class="search-box m-l-xs-15 m-r-xs-15">
-                        <input type="text" class="form-item" placeholder="Search...">
-                        <button type="submit" class="fa fa-search"></button>
-                    </div>
-                </div>
+                <!--<div class="col-sm-3 col-md-3 col-lg-3 p-0">-->
+                <!--<div class="search-box m-l-xs-15 m-r-xs-15">-->
+                <!--<input type="text" class="form-item" placeholder="Search...">-->
+                <!--<button type="submit" class="fa fa-search"></button>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -176,8 +178,8 @@
                         <img src="images/bg-13.png" alt="image">
                         <div class="slider-caption">
                             <h3 class="heading-size-3">100% Natural</h3>
-                            <h2 class="heading-size-1">ORGANIC</h1>
-                                <h4 class="heading-size-5">Best product organic shop</h4>
+                            <h2 class="heading-size-1">ORGANIC</h2>
+                            <h4 class="heading-size-5">Best product organic shop</h4>
                         </div>
                     </div>
                 </div>
@@ -186,8 +188,8 @@
                         <img src="images/bg-12.png" alt="image">
                         <div class="slider-caption">
                             <h3 class="heading-size-3">We supply farm</h3>
-                            <h2 class="heading-size-1">VEGETABLE</h1>
-                                <h4 class="heading-size-5">Farm fresh vegetables & fruits</h4>
+                            <h2 class="heading-size-1">VEGETABLE</h2>
+                            <h4 class="heading-size-5">Farm fresh vegetables & fruits</h4>
                         </div>
                     </div>
                 </div>
@@ -558,7 +560,7 @@
                     <!-- Product item -->
                     <div class="product-item">
                         <a href="product_detail.html">
-                            <img src="images/11.jpg" alt="image">
+                            <!--<img src="images/11.jpg" alt="image">-->
                         </a>
                         <div class="product-caption">
                             <h4 class="product-name">
@@ -823,5 +825,10 @@
 <script src="js/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Script -->
 <script src="js/script.js"></script>
+
+<script src="js/login.js"></script>
+<script>
+    $("#login").load("login.html");
+</script>
 </body>
 </html>
