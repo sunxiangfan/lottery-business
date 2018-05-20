@@ -33,7 +33,7 @@ public class RegisterController {
         Results reuslt = ValidationUtils.validateEntity(body);
         if (reuslt.getCode().equals(ResultStatusEnum.SUCCESS.getCode())) {
             try {
-                //校验用户是否存在
+                //校验用户是否存在90
                 UserInfoBean bean = new UserInfoBean();
                 bean.setLoginName(body.getLoginName());
                 UserInfoBean userInfo = userInfoService.findUserInfo(bean);

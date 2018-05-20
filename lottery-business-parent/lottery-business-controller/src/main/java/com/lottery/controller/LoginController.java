@@ -38,11 +38,12 @@ public class LoginController {
                     results = Results.fail("用户不存在！");
                     return results;
                 }
-                if(!MD5Utils.EncoderByMd5(body.getLoginPswd()).equals(bean.getLoginPswd())){
+                if(!MD5Utils.EncoderByMd5(body.getLoginPswd()).equals(userInfo.getLoginPswd())){
                     results = Results.fail("密码不正确！");
                     return results;
                 }
                 String token = JwtHelper.createJWT(bean.getUserId(),body.getLoginName(),jwtSecretKey);
+                System.out.println(token+"-----------------------");
                 results = Results.success(token);
             } catch (Exception e) {
                 log.error("登录失败！", e);

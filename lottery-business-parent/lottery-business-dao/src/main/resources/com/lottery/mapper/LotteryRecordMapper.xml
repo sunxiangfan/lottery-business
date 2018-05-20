@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lottery.mapper.LotteryRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.lottery.entity.LotteryRecordBean" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="lottery_code" property="lotteryCode" jdbcType="VARCHAR" />
+    <result column="purchase_num" property="purchaseNum" jdbcType="VARCHAR" />
+    <result column="lottery_periods" property="lotteryPeriods" jdbcType="VARCHAR" />
+    <result column="multiple" property="multiple" jdbcType="INTEGER" />
+    <result column="lottery_amount" property="lotteryAmount" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="prize_status" property="prizeStatus" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <insert id="insertSelective" parameterType="com.lottery.entity.LotteryRecordBean" >
+    insert into lottery_record (id, user_id, lottery_code,
+    purchase_num, lottery_periods, multiple,
+    lottery_amount, status, prize_status,
+    time)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{lotteryCode,jdbcType=VARCHAR},
+    #{purchaseNum,jdbcType=VARCHAR}, #{lotteryPeriods,jdbcType=VARCHAR}, #{multiple,jdbcType=INTEGER},
+    #{lotteryAmount,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{prizeStatus,jdbcType=VARCHAR},
+    now())
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.lottery.entity.LotteryRecordBean" >
+      update lottery_record
+      <set >
+        <if test="userId != null and userId != ''" >
+          user_id = #{userId,jdbcType=VARCHAR},
+        </if>
+        <if test="lotteryCode != null and lotteryCode != ''" >
+          lottery_code = #{lotteryCode,jdbcType=VARCHAR},
+        </if>
+        <if test="purchaseNum != null and purchaseNum != ''" >
+          purchase_num = #{purchaseNum,jdbcType=VARCHAR},
+        </if>
+        <if test="lotteryPeriods != null and lotteryPeriods != ''" >
+          lottery_periods = #{lotteryPeriods,jdbcType=VARCHAR},
+        </if>
+        <if test="multiple != null and multiple != ''" >
+          multiple = #{multiple,jdbcType=INTEGER},
+        </if>
+        <if test="lotteryAmount != null and lotteryAmount != ''" >
+          lottery_amount = #{lotteryAmount,jdbcType=DECIMAL},
+        </if>
+        <if test="status != null and status != ''" >
+          status = #{status,jdbcType=VARCHAR},
+        </if>
+        <if test="prizeStatus != null and prizeStatus != ''" >
+          prize_status = #{prizeStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="time != null and time != ''" >
+          time = #{time,jdbcType=TIMESTAMP},
+        </if>
+      </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from lottery_record where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="findByEntity" resultMap="BaseResultMap" parameterType="com.lottery.entity.LotteryRecordBean" >
+    select * from lottery_record
+    <where>1=1
+      <if test="id != null and id != ''" >
+        and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="userId != null and userId != ''" >
+        and user_id = #{userId,jdbcType=VARCHAR}
+      </if>
+      <if test="lotteryCode != null and lotteryCode != ''" >
+        and lottery_code = #{lotteryCode,jdbcType=VARCHAR}
+      </if>
+      <if test="purchaseNum != null and purchaseNum != ''" >
+        and purchase_num = #{purchaseNum,jdbcType=VARCHAR}
+      </if>
+      <if test="lotteryPeriods != null and lotteryPeriods != ''" >
+        and lottery_periods = #{lotteryPeriods,jdbcType=VARCHAR}
+      </if>
+      <if test="multiple != null and multiple != ''" >
+        and multiple = #{multiple,jdbcType=INTEGER}
+      </if>
+      <if test="lotteryAmount != null and lotteryAmount != ''" >
+        and lottery_amount = #{lotteryAmount,jdbcType=DECIMAL}
+      </if>
+      <if test="status != null and status != ''" >
+        and status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="prizeStatus != null and prizeStatus != ''" >
+        and prize_status = #{prizeStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="time != null and time != ''" >
+        and time = #{time,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+  </select>
+</mapper>

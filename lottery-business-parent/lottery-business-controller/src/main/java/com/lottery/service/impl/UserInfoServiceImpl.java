@@ -23,6 +23,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
+
     public void insertUserInfo(UserInfoBean bean) {
         userInfoMapper.insertUserInfo(bean);
     }

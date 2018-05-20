@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lottery.mapper.BankCardMapper" >
+
+  <resultMap id="BaseResultMap" type="com.lottery.entity.BankCardBean" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="card_num" property="cardNum" jdbcType="VARCHAR" />
+    <result column="card_holder" property="cardHolder" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="insertSelective" parameterType="com.lottery.entity.BankCardBean" >
+    insert into bank_card (id, user_id, card_num,card_holder)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{cardNum,jdbcType=VARCHAR},
+    #{cardHolder,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.lottery.entity.BankCardBean" >
+    update bank_card
+    <set >
+      <if test="userId != null and userId != ''" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null and cardNum != ''" >
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="cardHolder != null and cardHolder != ''" >
+        card_holder = #{cardHolder,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+     select * from bank_card where id = #{id}
+  </select>
+
+  <select id="findByEntity" resultMap="BaseResultMap" parameterType="com.lottery.entity.BankCardBean">
+    select * from bank_card
+    <where>1=1
+      <if test="id != null and id != ''">
+        AND id = #{id}
+      </if>
+      <if test="userId != null and userId != ''">
+        AND user_id = #{userId}
+      </if>
+      <if test="cardNum != null and cardNum != ''">
+        AND card_num = #{cardNum}
+      </if>
+      <if test="cardHolder != null and cardHolder != ''">
+        AND card_holder = #{cardHolder}
+      </if>
+    </where>
+  </select>
+</mapper>
