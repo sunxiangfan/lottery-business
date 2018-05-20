@@ -1,11 +1,21 @@
-﻿<div class="container" id="loginForm" hidden>
-    <div class="form-group">
-        <input type="text" class="form-control" id="loginName" placeholder="Auth Key" name="Key">
+﻿<div class="overCurtain"></div>
+
+<div class="hide-center">
+    <div id="formhead">
+        <div id="formhead-title">
+            User Login
+        </div>
+        <button type="button" id="close">X</button>
     </div>
-    <div class="form-group">
-        <input type="password" class="form-control" id="loginPswd" placeholder="Auth Secret" name="Secret">
-    </div>
-    <div class="form-group">
-        <button class="btn btn-large btn-primary" id="btnLogin" onclick="LoginCheck()">登录</button>
+    <div id="formbody">
+        <div class="loginUserName">
+            <input id="input-topright-loginInput" name="userName" class="loginInput" placeholder="userName" type="text" value="admin">
+        </div>
+        <div class="loginPassword">
+            <input id="input-bottomright-loginInput" name="password" class="loginInput" placeholder="password" type="password" style="border-bottom-right-radius:5px;">
+        </div>
+        <div id="formfoot">
+            <button id="BSignIn" type="submit">Sign In</button>
+        </div>
     </div>
 </div>
