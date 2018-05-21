@@ -46,7 +46,6 @@ public class CaptchaController {
     private static int captchaExpires = 5 * 60; // 超时时间5分钟
     private static int captchaW = 65;
     private static int captchaH = 40;
-    //private static String cookieName = "CaptchaCode";
     private static int codeCount = 4;   //值得位数
     private static char[] codeNumber = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};     //生成验证码的取值范围
 
@@ -66,6 +65,7 @@ public class CaptchaController {
 
         // 将验证码key，及验证码的图片返回  
         Cookie cookie = new Cookie(cookieName, uuid);
+        cookie.setPath("/");
         response.addCookie(cookie);
         ByteArrayOutputStream bao = new ByteArrayOutputStream();
         try {

@@ -1,12 +1,11 @@
 function showLogin() {
-
     $(".overCurtain").fadeIn("slow");
     $(".hide-center").fadeIn("slow");
 }
 
 $("#close").click(function () {
-    $(".hide-center").fadeOut("slow")
-    $(".overCurtain").fadeOut("slow")
+    $(".hide-center").fadeOut("slow");
+    $(".overCurtain").fadeOut("slow");
 })
 
 $("#BSignIn").click(function () {
@@ -21,15 +20,16 @@ $("#BSignIn").click(function () {
         url: '/user/login',
         data: data,
         success: function (res) {
-            if (res.Message == "success") {
-                $("#loginForm").dialog('close');
+            if (res.code == "200") {
+                $(".hide-center").fadeOut("slow");
+                $(".overCurtain").fadeOut("slow");
             }
             else {
-                alert("请重新输入1");
+                alert(res.message);
             }
         },
         error: function () {
-            alert("请重新输入");
+            alert("登录失败！");
         },
     });
 })

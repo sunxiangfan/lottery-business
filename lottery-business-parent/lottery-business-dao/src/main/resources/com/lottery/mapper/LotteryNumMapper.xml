@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lottery.mapper.LotteryNumMapper" >
+<mapper namespace="com.lottery.mapper.LotteryNumMapper">
 
-  <resultMap id="BaseResultMap" type="com.lottery.entity.LotteryNumBean" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="lottery_code" property="lotteryCode" jdbcType="VARCHAR" />
-    <result column="lottery_num" property="lotteryNum" jdbcType="VARCHAR" />
-    <result column="lottery_periods" property="lotteryPeriods" jdbcType="VARCHAR" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.lottery.entity.LotteryNumBean">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="lottery_code" property="lotteryCode" jdbcType="VARCHAR"/>
+        <result column="lottery_num" property="lotteryNum" jdbcType="VARCHAR"/>
+        <result column="lottery_periods" property="lotteryPeriods" jdbcType="VARCHAR"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP"/>
+    </resultMap>
 
-  <insert id="insertSelective" parameterType="com.lottery.entity.LotteryNumBean" >
+    <insert id="insertSelective" parameterType="com.lottery.entity.LotteryNumBean">
     insert into lottery_num (id, lottery_code, lottery_num,
     lottery_periods, time)
     values (#{id,jdbcType=VARCHAR}, #{lotteryCode,jdbcType=VARCHAR}, #{lotteryNum,jdbcType=VARCHAR},
     #{lotteryPeriods,jdbcType=VARCHAR}, now())
   </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.lottery.entity.LotteryNumBean" >
-    update lottery_num
-    <set >
-      <if test="lotteryCode != null and lotteryCode != ''" >
-        lottery_code = #{lotteryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="lotteryNum != null and lotteryNum != ''" >
-        lottery_num = #{lotteryNum,jdbcType=VARCHAR},
-      </if>
-      <if test="lotteryPeriods != null and lotteryPeriods != ''" >
-        lottery_periods = #{lotteryPeriods,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null and time != ''" >
-        time = #{time,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lottery.entity.LotteryNumBean">
+        update lottery_num
+        <set>
+            <if test="lotteryCode != null and lotteryCode != ''">
+                lottery_code = #{lotteryCode,jdbcType=VARCHAR},
+            </if>
+            <if test="lotteryNum != null and lotteryNum != ''">
+                lottery_num = #{lotteryNum,jdbcType=VARCHAR},
+            </if>
+            <if test="lotteryPeriods != null and lotteryPeriods != ''">
+                lottery_periods = #{lotteryPeriods,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null and time != ''">
+                time = #{time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
 
-  <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from lottery_num where id = #{id}
   </select>
 
-  <select id="findByEntity" resultMap="BaseResultMap" parameterType="com.lottery.entity.LotteryNumBean">
-    select * from lottery_num
-    <where>1=1
-      <if test="id != null and id != ''">
-        AND id = #{id}
-      </if>
-      <if test="lotteryCode != null and lotteryCode != ''">
-        AND lottery_code = #{lotteryCode}
-      </if>
-      <if test="lotteryNum != null and lotteryNum != ''">
-        AND lottery_num = #{lotteryNum}
-      </if>
-      <if test="lotteryPeriods != null and lotteryPeriods != ''">
-        AND lottery_periods = #{lotteryPeriods}
-      </if>
-      <if test="time != null and time != ''">
-        AND time = #{time}
-      </if>
-    </where>
-  </select>
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="com.lottery.entity.LotteryNumBean">
+        select * from lottery_num
+        <where>1=1
+            <if test="id != null and id != ''">
+                AND id = #{id}
+            </if>
+            <if test="lotteryCode != null and lotteryCode != ''">
+                AND lottery_code = #{lotteryCode}
+            </if>
+            <if test="lotteryNum != null and lotteryNum != ''">
+                AND lottery_num = #{lotteryNum}
+            </if>
+            <if test="lotteryPeriods != null and lotteryPeriods != ''">
+                AND lottery_periods = #{lotteryPeriods}
+            </if>
+            <if test="time != null and time != ''">
+                AND time = #{time}
+            </if>
+        </where>
+    </select>
 </mapper>
