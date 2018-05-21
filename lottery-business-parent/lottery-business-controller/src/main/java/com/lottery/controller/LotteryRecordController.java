@@ -62,8 +62,7 @@ public class LotteryRecordController {
             LotteryRecordBean lotteryRecordBean = new LotteryRecordBean();
             BeanUtils.copyProperties(body,lotteryRecordBean);
             List<LotteryRecordBean> list = lotteryRecordService.findByEntity(lotteryRecordBean);
-            results = Results.success("查询成功");
-            results.setData(list);
+            results = Results.success(list);
         } catch (Exception e) {
             log.error("查询购彩记录失败！", e);
             results = Results.fail("查询购彩记录失败！");
@@ -76,8 +75,7 @@ public class LotteryRecordController {
         Results results;
         try {
             LotteryRecordBean bank = lotteryRecordService.findByPrimaryKey(body.getId());
-            results = Results.success("查询成功");
-            results.setData(bank);
+            results = Results.success(bank);
         } catch (Exception e) {
             log.error("查询购彩记录失败！", e);
             results = Results.fail("查询购彩记录失败！");

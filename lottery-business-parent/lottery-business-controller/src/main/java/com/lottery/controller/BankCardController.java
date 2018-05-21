@@ -68,8 +68,7 @@ public class BankCardController {
             bankCardBean.setCardNum(body.getCardNum());
             bankCardBean.setUserId(body.getUserId());
             List<BankCardBean> list = bankCardService.findByEntity(bankCardBean);
-            results = Results.success("查询成功");
-            results.setData(list);
+            results = Results.success(list);
         } catch (Exception e) {
             log.error("查询银行卡信息失败！", e);
             results = Results.fail("查询银行卡信息失败！");
@@ -81,8 +80,7 @@ public class BankCardController {
         Results results;
         try {
             BankCardBean bank = bankCardService.findByPrimaryKey(body.getId());
-            results = Results.success("查询成功");
-            results.setData(bank);
+            results = Results.success(bank);
         } catch (Exception e) {
             log.error("查询银行卡信息失败！", e);
             results = Results.fail("查询银行卡信息失败！");

@@ -52,7 +52,6 @@ public class RegisterController {
                 userInfoBean.setLoginPswd(MD5Utils.EncoderByMd5(body.getLoginPswd()));
                 userInfoBean.setPUserId(body.getPUserId());
                 userInfoService.insertUserInfo(userInfoBean);
-                reuslt = Results.success("");
             }catch (Exception e){
                 log.error(reuslt.getMessage(),e);
                 reuslt = Results.fail("注册失败");

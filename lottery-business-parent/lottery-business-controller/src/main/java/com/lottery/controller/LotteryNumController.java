@@ -35,7 +35,6 @@ public class LotteryNumController {
                 lotteryNumBean.setLotteryNum(body.getLotteryNum());
                 lotteryNumBean.setLotteryPeriods(body.getLotteryPeriods());
                 lotteryNumService.insertSelective(lotteryNumBean);
-                results = Results.success("开奖信息添加成功");
             } catch (Exception e) {
                 log.error("开奖信息添加失败",e);
                 results = Results.fail("开奖信息添加失败");
@@ -55,7 +54,6 @@ public class LotteryNumController {
                 lotteryNumBean.setLotteryNum(body.getLotteryNum());
                 lotteryNumBean.setLotteryPeriods(body.getLotteryPeriods());
                 lotteryNumService.updateByPrimaryKeySelective(lotteryNumBean);
-                results = Results.success("修改开奖信息成功");
             } catch (Exception e) {
                 log.error("修改开奖信息失败",e);
                 results = Results.fail("修改开奖信息失败");
@@ -75,8 +73,7 @@ public class LotteryNumController {
             lotteryNumBean.setLotteryPeriods(body.getLotteryPeriods());
             lotteryNumService.updateByPrimaryKeySelective(lotteryNumBean);
             List<LotteryNumBean> list = lotteryNumService.findByEntity(lotteryNumBean);
-            results = Results.success("查询成功");
-            results.setData(list);
+            results = Results.success(list);
         } catch (Exception e) {
             log.error("查询开奖信息失败！", e);
             results = Results.fail("查询开奖信息失败！");
@@ -88,8 +85,7 @@ public class LotteryNumController {
         Results results;
         try {
             LotteryNumBean num = lotteryNumService.findByPrimaryKey(body.getId());
-            results = Results.success("查询成功");
-            results.setData(num);
+            results = Results.success(num);
         } catch (Exception e) {
             log.error("查询开奖信息失败！", e);
             results = Results.fail("查询开奖信息失败！");

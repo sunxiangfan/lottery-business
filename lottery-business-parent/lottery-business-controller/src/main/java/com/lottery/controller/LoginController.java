@@ -44,7 +44,6 @@ public class LoginController {
                     return results;
                 }
                 String token = JwtHelper.createJWT(bean.getUserId(),body.getLoginName(),jwtSecretKey);
-                System.out.println(token+"-----------------------");
                 results = Results.success(token);
             } catch (Exception e) {
                 log.error("登录失败！", e);
